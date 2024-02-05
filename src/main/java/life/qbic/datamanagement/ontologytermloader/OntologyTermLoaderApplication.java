@@ -38,7 +38,7 @@ public class OntologyTermLoaderApplication {
     }
 
     var ontology = loadingTask.get();
-    var entities = convert(ontology.classes(), ontology);
+    var entities = convert(ontology.classes(), ontology).stream().distinct();
 
     entities.forEach(ontologyRepo::save);
 
