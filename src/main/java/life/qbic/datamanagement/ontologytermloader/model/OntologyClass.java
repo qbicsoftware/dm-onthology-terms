@@ -24,6 +24,7 @@ public class OntologyClass {
   public OntologyClass() {
   }
 
+
   /**
    * Some Ontologies tend to swamp properties like label or description with text.
    * <p>
