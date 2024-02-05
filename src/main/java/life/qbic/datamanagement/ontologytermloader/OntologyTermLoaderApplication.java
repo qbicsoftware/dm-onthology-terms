@@ -23,7 +23,7 @@ public class OntologyTermLoaderApplication {
     var ontologyRepo = context.getBean(OntologyEntityRepo.class);
 
     var ontologyUrl = OntologyTermLoaderApplication.class.getClassLoader()
-        .getResource("ontology_bao_complete.json");
+        .getResource("ontology_efo.json");
     var ontologyReader = new OntologyReader(Paths.get(ontologyUrl.toURI()));
 
     var loadingTask = ontologyReader.load().thenApplyAsync(ontology -> {
