@@ -1,5 +1,6 @@
 package life.qbic.datamanagement.ontologytermloader.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -17,18 +18,25 @@ import java.util.Objects;
 @Table(name = "ontology_classes")
 public class OntologyClassEntity {
 
+  @Column(name = "ontology")
   String ontology;
 
+  @Column(name = "ontologyVersion")
   String ontologyVersion;
 
+  @Column(name = "ontologyIri")
   String ontologyIri;
 
+  @Column(name = "label")
   String label;
 
+  @Column(name = "name")
   String name;
 
+  @Column(name="description", length = 2000)
   String description;
 
+  @Column(name="classIri")
   String classIri;
 
   @Id
