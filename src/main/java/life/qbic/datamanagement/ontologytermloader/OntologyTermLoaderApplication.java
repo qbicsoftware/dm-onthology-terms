@@ -19,18 +19,21 @@ public class OntologyTermLoaderApplication {
       throws URISyntaxException, IOException, InterruptedException, ExecutionException {
 
     var context = SpringApplication.run(OntologyTermLoaderApplication.class, args);
+    var ontologyPath = context.getBean(OntologyPath.class);
 
     var ontologyRepo = context.getBean(OntologyEntityRepo.class);
 
-    var ontologyUrl = OntologyTermLoaderApplication.class.getClassLoader()
-        .getResource("ontology_efo.json");
-    var ontologyReader = new OntologyReader(Paths.get(ontologyUrl.toURI()));
+    var ontologyReader = new OntologyReader(Paths.get(ontologyPath.value()));
 
     var loadingTask = ontologyReader.load().thenApplyAsync(ontology -> {
       System.out.println("Loaded ontology: %s - %s".formatted(ontology.ontologyName().toUpperCase(),
           ontology.ontologyTitle()));
       return ontology;
     });
+    if (!ontologyPath.value().isBlank()) {
+      System.out.println(ontologyPath.value());
+      return;
+    }
 
     while (!loadingTask.isDone()) {
       System.out.println("\rLoading ontology from file...");

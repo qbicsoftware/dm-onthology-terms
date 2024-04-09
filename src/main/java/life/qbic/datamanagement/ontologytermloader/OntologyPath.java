@@ -1,4 +1,4 @@
-package life.qbic.datamanagement.ontologytermloader.model;
+package life.qbic.datamanagement.ontologytermloader;
 
 /**
  * <b><class short description - 1 Line!></b>
