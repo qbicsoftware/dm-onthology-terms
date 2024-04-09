@@ -19,6 +19,7 @@ public class OntologyTermLoaderApplication {
       throws URISyntaxException, IOException, InterruptedException, ExecutionException {
 
     var context = SpringApplication.run(OntologyTermLoaderApplication.class, args);
+
     var ontologyPath = context.getBean(OntologyPath.class);
 
     var ontologyRepo = context.getBean(OntologyEntityRepo.class);
@@ -30,10 +31,7 @@ public class OntologyTermLoaderApplication {
           ontology.ontologyTitle()));
       return ontology;
     });
-    if (!ontologyPath.value().isBlank()) {
-      System.out.println(ontologyPath.value());
-      return;
-    }
+
 
     while (!loadingTask.isDone()) {
       System.out.println("\rLoading ontology from file...");

@@ -9,10 +9,12 @@ import org.springframework.context.annotation.PropertySource;
 /**
  * <b><class short description - 1 Line!></b>
  *
+
  * <p><More detailed description - When to use, what it solves, etc.></p>
  *
  * @since <version tag>
  */
+
 @Configuration
 @PropertySource("application.properties")
 public class Config {
