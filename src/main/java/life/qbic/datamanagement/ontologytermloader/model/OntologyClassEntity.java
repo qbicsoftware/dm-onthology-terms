@@ -141,4 +141,18 @@ public class OntologyClassEntity {
   public void setId(Long id) {
     this.id = id;
   }
+
+  @Override
+  public String toString() {
+    return "OntologyClassEntity{" +
+        "ontology='" + ontology + '\'' +
+        ", ontologyVersion='" + ontologyVersion + '\'' +
+        ", ontologyIri='" + ontologyIri + '\'' +
+        ", label='" + label + '\'' +
+        ", name='" + name + '\'' +
+        ", description='" + description + '\'' +
+        ", classIri='" + classIri + '\'' +
+        ", id=" + id +
+        '}';
+  }
 }

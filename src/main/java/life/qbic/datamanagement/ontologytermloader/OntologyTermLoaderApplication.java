@@ -41,7 +41,10 @@ public class OntologyTermLoaderApplication {
     var ontology = loadingTask.get();
     var entities = convert(ontology.classes(), ontology);
 
-    entities.forEach(ontologyRepo::save);
+    entities.forEach(ontologyClassEntity -> {
+      System.out.println("Saving class to repo: " + ontologyClassEntity);
+      ontologyRepo.save(ontologyClassEntity);
+    });
 
   }
 
